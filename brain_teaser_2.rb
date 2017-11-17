@@ -1,7 +1,9 @@
-puts "What is your word?"
-word = gets.strip.downcase
+require "colorize"
 
-@word_arr = (word.split(%r{\s*}))
+puts "\nWhat is your word?".yellow
+@word = gets.strip.downcase
+
+@word_arr = (@word.split(%r{\s*}))
 
 def palindrome_check(num, fin)
   first_position = @word_arr[num]
@@ -10,12 +12,12 @@ def palindrome_check(num, fin)
 
   if first_position == last_position
     if num + 1 == total_letters
-      puts "Palindrome"
+      puts "#@word is a palindrome".yellow
     else
       palindrome_check(num + 1, fin + 1)
     end
   else
-    puts "Not a palindrome"
+    puts "#@word is not a palindrome".yellow
   end
 
 end
