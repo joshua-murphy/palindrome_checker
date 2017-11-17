@@ -3,7 +3,8 @@ require "colorize"
 while true
 
   puts "\n===== What is your word? ===== \nMake it 'exit' if you wish to leave".yellow
-  @word = gets.strip.downcase
+  @vanilla_word = gets
+  @word = @vanilla_word.strip.downcase
   @word == "exit" ? exit() : "continue"
 
   @word_arr = (@word.split(%r{\s*}))
@@ -15,12 +16,12 @@ while true
 
     if first_position == last_position
       if num + 1 == total_letters
-        puts "#@word is a palindrome".green
+        puts "#@vanilla_word is a palindrome! Try another!".green
       else
         palindrome_check(num + 1, fin + 1)
       end
     else
-      puts "#@word is not a palindrome".red
+      puts "#@vanilla_word is not a palindrome. Try again!".red
     end
 
   end
