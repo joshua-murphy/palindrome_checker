@@ -2,7 +2,7 @@ require "colorize"
 
 while true
 
-  puts "\nWhat is your word?".yellow
+  puts "\n===== What is your word? ===== \nMake it 'exit' if you wish to leave".yellow
   @word = gets.strip.downcase
   @word == "exit" ? exit() : "continue"
 
@@ -15,12 +15,12 @@ while true
 
     if first_position == last_position
       if num + 1 == total_letters
-        puts "#@word is a palindrome".yellow
+        puts "#@word is a palindrome".green
       else
         palindrome_check(num + 1, fin + 1)
       end
     else
-      puts "#@word is not a palindrome".yellow
+      puts "#@word is not a palindrome".red
     end
 
   end
